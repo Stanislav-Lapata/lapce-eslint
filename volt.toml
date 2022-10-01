@@ -1,6 +1,18 @@
-name = "<plugin-name>"
-version = "0.0.0"
-author = "<your name>"
-display-name = "<plugin-display-name>"
-description = "<plugin-description>"
-wasm = "bin/<plugin-name>.wasm"
+name = "lapce-eslint"
+version = "0.0.1"
+author = "Stanislav Lapata"
+display-name = "ESLint"
+description = "ESLint for Lapce: powered by vscode-eslint-language-server"
+wasm = "bin/lapce-eslint.wasm"
+
+[activation]
+language = ["javascript", "javascriptreact", "typescript", "typescriptreact"]
+workspace-contains = ["*/eslintrc.*", "*/.eslintrc.*", "package.json"]
+
+# [serverPath]
+# default = 'vscode-eslint-language-server'
+# description = "Default server path"
+#
+# [serverArgs]
+# default = ['--stdio']
+# description = "Default server arguments"

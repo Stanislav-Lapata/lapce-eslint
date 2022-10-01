@@ -14,14 +14,28 @@ struct State {}
 register_plugin!(State);
 
 fn initialize(params: InitializeParams) -> Result<()> {
-    let document_selector: DocumentSelector = vec![DocumentFilter {
-        // lsp language id
-        language: Some(String::from("language_id")),
-        // glob pattern
-        pattern: Some(String::from("**/*.{ext1,ext2}")),
-        // like file:
-        scheme: None,
-    }];
+    let document_selector: DocumentSelector = vec![
+        DocumentFilter {
+            language: Some(String::from("javascript")),
+            pattern: Some(String::from("**/*.js")),
+            scheme: None,
+        },
+        DocumentFilter {
+            language: Some(String::from("typescript")),
+            pattern: Some(String::from("**/*.ts")),
+            scheme: None,
+        },
+        DocumentFilter {
+            language: Some(String::from("javascriptreact")),
+            pattern: Some(String::from("**/*.jsx")),
+            scheme: None,
+        },
+        DocumentFilter {
+            language: Some(String::from("typescriptreact")),
+            pattern: Some(String::from("**/*.tsx")),
+            scheme: None,
+        },
+    ];
     let mut server_args = vec![];
 
     // Check for user specified LSP server path
